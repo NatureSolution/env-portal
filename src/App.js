@@ -2,14 +2,15 @@ import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Pages/Home/Home";
 import About from "./components/Pages/About/About";
+import Headers from "./components/Sheared/Headers/Headers";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to React Router!</h1>
+      <Headers />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
