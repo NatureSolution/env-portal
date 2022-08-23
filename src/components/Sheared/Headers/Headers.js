@@ -45,7 +45,7 @@ const Headers = () => {
                 </a>
                 <ul class="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <Link to="/services">Services</Link>
                   </li>
                   <li>
                     <a>Submenu 2</a>
@@ -88,6 +88,9 @@ const Headers = () => {
             </li>
             <li>
               <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/services">Services</Link>
             </li>
           </ul>
         </div>
