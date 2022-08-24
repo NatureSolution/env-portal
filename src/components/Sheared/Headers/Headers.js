@@ -30,6 +30,9 @@ const Headers = () => {
               <li>
                 <Link to="/home">Home</Link>
               </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
               <li tabindex="0">
                 <a class="justify-between">
                   Parent
@@ -45,7 +48,7 @@ const Headers = () => {
                 </a>
                 <ul class="p-2">
                   <li>
-                    <Link to="/services">Services</Link>
+                    <a>Submenu 1</a>
                   </li>
                   <li>
                     <a>Submenu 2</a>
@@ -53,7 +56,16 @@ const Headers = () => {
                 </ul>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/appointments">Appointments</Link>
+              </li>
+              <li>
+                <Link to="/reviews">Reviews</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
               </li>
             </ul>
           </div>
@@ -63,6 +75,9 @@ const Headers = () => {
           <ul class="menu menu-horizontal p-0">
             <li>
               <Link to="/home">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
             </li>
             <li tabindex="0">
               <a>
@@ -87,15 +102,18 @@ const Headers = () => {
               </ul>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/appointments">Appointments</Link>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link to="/reviews">Reviews</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact Us</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
             </li>
           </ul>
-        </div>
-        <div class="navbar-end">
-          <a class="btn">Get started</a>
         </div>
       </div>
     </div>
@@ -103,3 +121,7 @@ const Headers = () => {
 };
 
 export default Headers;
+
+{
+  /* <Link to="/services">Services</Link> */
+}
