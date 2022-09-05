@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footers = () => {
   return (
     <div>
       <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
         <div class="grid grid-flow-col gap-4">
-          <a class="link link-hover">About us</a>
-          <a class="link link-hover">Contact</a>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact</Link>
           <a class="link link-hover">Jobs</a>
           <a class="link link-hover">Press kit</a>
         </div>
@@ -48,7 +49,7 @@ const Footers = () => {
           </div>
         </div>
         <div>
-          <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+          <p>Copyright © 2022 - All right reserved by Nature Solution Ltd.</p>
         </div>
       </footer>
     </div>

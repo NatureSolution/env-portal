@@ -2,48 +2,53 @@ import React from "react";
 import fluoried from "./../../../assets/images/fluoride.png";
 import cavity from "./../../../assets/images/cavity.png";
 import whitening from "./../../../assets/images/whitening.png";
+import ServiceCard from "./ServiceCard";
+import ServiceDetails from "./ServiceDetails";
+import MakeAppointment from "./MakeAppointment";
 
 const Services = () => {
+  const services = [
+    {
+      _id: 1,
+      name: "Fluride Treatment",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, reprehenderit architecto. Sapiente explicabo nihil inventore. Aut labore ipsum numquam enim.",
+      img: fluoried,
+    },
+    {
+      _id: 2,
+      name: "Cavity Fealling",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, reprehenderit architecto. Sapiente explicabo nihil inventore. Aut labore ipsum numquam enim.",
+      img: cavity,
+    },
+    {
+      _id: 3,
+      name: "Teeth Whitining",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, reprehenderit architecto. Sapiente explicabo nihil inventore. Aut labore ipsum numquam enim.",
+      img: whitening,
+    },
+  ];
   return (
-    <div>
-      <div className="py-5">
-        <p className="text-l font-bold text-cyan-400">Our Services</p>
-        <p className="text-3xl">Service We Provide</p>
+    <div className="my-28">
+      <div className=" text-center  uppercase my-5">
+        <h3 className="text-xl font-bold text-primary">Our Services</h3>
+        <h5 className="text-3xl">Services we Provide</h5>
       </div>
-      <div className="flex gap-3">
-        <div>
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-              <img src={fluoried} alt="Shoes" class="rounded-xl" />
-            </figure>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">Fluoride Treatment!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-              <img src={cavity} alt="Shoes" class="rounded-xl" />
-            </figure>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">Cavity Felling</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-              <img src={whitening} alt="Shoes" class="rounded-xl" />
-            </figure>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">Teeth Whitenings</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-            </div>
-          </div>
-        </div>
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5 gap-10">
+        {services.map((service) => (
+          <ServiceCard key={service._id} service={service}></ServiceCard>
+        ))}
+        {/* <ServiceCard img={fluoried} cardTitle="Fluride Treatment"></ServiceCard>
+        <ServiceCard img={cavity} cardTitle="Cavity Felaling"></ServiceCard>
+        <ServiceCard img={whitening} cardTitle="Teeth Whitining"></ServiceCard> */}
+      </div>
+      <div className="py-5">
+        <ServiceDetails></ServiceDetails>
+      </div>
+      <div className="py-5">
+        <MakeAppointment />
       </div>
     </div>
   );
