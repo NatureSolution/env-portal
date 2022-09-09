@@ -1,9 +1,9 @@
 import React from "react";
 import Contact from "../ContactUs/Contact";
-import ContactUs from "../ContactUs/ContactUs";
 import Banner from "./Banner";
 import Info from "./Info";
 import Services from "./Services";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
   return (
@@ -12,6 +12,7 @@ const Home = () => {
         <Banner />
         <Info />
         <Services />
+        <Testimonials></Testimonials>
         <Contact></Contact>
       </div>
     </div>

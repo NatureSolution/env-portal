@@ -8,7 +8,7 @@ import NothingFound from "./components/Sheared/NothingFound/NothingFound";
 import Login from "./components/Pages/Login/Login";
 import ContactUs from "./components/Pages/ContactUs/ContactUs";
 import Reviews from "./components/Pages/Reviews/Reviews";
-import Appointment from "./components/Pages/Appointment/Appointment";
+import Appointments from "./components/Pages/Appointment/Appointments";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/appointments" element={<Appointment />} />
+        <Route path="/appointments" element={<Appointments />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />

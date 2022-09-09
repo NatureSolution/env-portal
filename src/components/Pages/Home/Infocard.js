@@ -1,16 +1,16 @@
 import React from "react";
 
-const Infocard = ({ img, cardTitle, bgClass }) => {
+const Infocard = ({ img, cardTitle, bgclassName }) => {
   return (
     <div className="">
       <div
-        class={`card lg:card-side  text-left shadow-xl px-5 py-5 text-white ${bgClass}`}
+        className={`card lg:card-side  text-left shadow-xl px-5 py-5 text-white ${bgclassName}`}
       >
         <figure>
           <img className="max-w-full" src={img} alt="Album" />
         </figure>
-        <div class="card-body">
-          <h2 class="card-title">{cardTitle}</h2>
+        <div className="card-body">
+          <h2 className="card-title">{cardTitle}</h2>
           <p>Click the button to listen on Spotiwhy app.</p>
         </div>
       </div>

@@ -1,56 +1,56 @@
 import React from "react";
-import contact from "./../../../assets/images/contact.svg";
+import doctor from "../../../assets/images/doctor.png";
+import appointment from "../../../assets/images/appointment.png";
+import PrimaryButton from "../../Sheared/Button/PrimaryButton";
 
 const Contact = () => {
   return (
-    <div>
-      <div class="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
-        <div class="flex flex-col justify-between">
-          <div>
-            <h2 class="text-4xl lg:text-5xl font-bold leading-tight">
-              Lets talk about everything!
-            </h2>
-            <div class="text-gray-700 mt-8">
-              Hate forms? Send us an <span class="underline">email</span>{" "}
-              instead.
+    <section
+      style={{
+        background: `url(${appointment})`,
+      }}
+      className="my-10"
+    >
+      <div className="hero min-h-screen">
+        <div className="">
+          <div className=" text-center py-5">
+            <h1 className=" text-primary text-xl font-bold">Contact Us</h1>
+            <p className=" text-white text-3xl">Stay Connected With Us</p>
+          </div>
+          <form action="#" class="space-y-8 bg-base-200 p-5 rounded-lg">
+            <div>
+              <input
+                type="email"
+                id="email"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="Your Email"
+                required
+              />
             </div>
-          </div>
-          <div class="mt-8 text-center">
-            <img src={contact} alt="" />
-          </div>
-        </div>
-        <div class="">
-          <div>
-            <span class="uppercase text-sm text-gray-600 font-bold">
-              Full Name
-            </span>
-            <input
-              class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              type="text"
-              placeholder=""
-            />
-          </div>
-          <div class="mt-8">
-            <span class="uppercase text-sm text-gray-600 font-bold">Email</span>
-            <input
-              class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              type="text"
-            />
-          </div>
-          <div class="mt-8">
-            <span class="uppercase text-sm text-gray-600 font-bold">
-              Message
-            </span>
-            <textarea class="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
-          </div>
-          <div class="mt-8">
-            <button class="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
-              Send Message
-            </button>
-          </div>
+            <div>
+              <input
+                type="text"
+                id="subject"
+                class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="Subject"
+                required
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <textarea
+                id="message"
+                rows="6"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Leave a comment..."
+              ></textarea>
+            </div>
+            <div>
+              <PrimaryButton></PrimaryButton>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

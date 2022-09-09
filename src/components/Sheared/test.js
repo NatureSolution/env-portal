@@ -2,9 +2,8 @@ import React from "react";
 import doctor from "../../../assets/images/doctor.png";
 import appointment from "../../../assets/images/appointment.png";
 import PrimaryButton from "../../Sheared/Button/PrimaryButton";
-import { Link } from "react-router-dom";
 
-const MakeAppointment = () => {
+const ContactUs = () => {
   return (
     <section
       style={{
@@ -29,14 +28,10 @@ const MakeAppointment = () => {
           excepturi enim ducimus amet esse culpa ullam soluta illum odio
           similique debitis doloremque, illo non modi?
         </p>
-        <Link to="/appointments">
-          <button class="btn bg-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">
-            Make Appointment
-          </button>
-        </Link>
+        <PrimaryButton> Get Started </PrimaryButton>
       </div>
     </section>
   );
 };
 
-export default MakeAppointment;
+export default ContactUs;
