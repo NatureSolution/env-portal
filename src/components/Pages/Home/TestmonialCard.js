@@ -2,7 +2,7 @@ import React from "react";
 
 const TestmonialCard = ({ review }) => {
   return (
-    <div className="px-8 py-5 shadow-lg rounded-lg">
+    <div className="container px-8 py-5 shadow-lg rounded-lg">
       <div>
         <p className="text-left py-5">{review.testimonials}</p>
       </div>

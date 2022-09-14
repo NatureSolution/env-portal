@@ -26,8 +26,8 @@ const Headers = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
-        <div className="navbar-start">
+      <div className=" navbar bg-base-100">
+        <div className="container navbar-start">
           <div className="dropdown">
             <label tabindex="0" className="btn btn-ghost lg:hidden">
               <svg

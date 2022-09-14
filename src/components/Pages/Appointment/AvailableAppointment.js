@@ -10,13 +10,15 @@ const AvailableAppointment = ({ date }) => {
   const [treatment, setTreatment] = useState(null);
 
   useEffect(() => {
-    fetch("service.json")
+    fetch("http://localhost:5000/service")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
+
+  console.log(services);
   return (
     <div>
-      <div className="m-3">
+      <div className="m-3 align-items-center">
         <h1 className="text-primary text-xl bold">
           Available Appointment on: {format(date, "PP")}
         </h1>

@@ -6,7 +6,7 @@ const Banner = () => {
     "https://cdn.pixabay.com/photo/2015/10/28/16/45/doctor-1010903_960_720.jpg";
   return (
     <div>
-      <div className="hero min-h-screen">
+      <div className="hero my-20">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img src={chair} className="max-w-sm rounded-lg shadow-2xl" />
           <div className="text-left">

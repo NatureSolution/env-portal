@@ -54,7 +54,7 @@ const Footers = () => {
           </div>
         </div>
         <div>
-          Digital Marketting
+          Dorctor's Solution
           <button>
             <Link to="https://www.linkedin.com/learning/paths/become-a-digital-marketing-specialist">
               Ditails{" "}
