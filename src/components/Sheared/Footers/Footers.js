@@ -53,14 +53,7 @@ const Footers = () => {
             </a>
           </div>
         </div>
-        <div>
-          Dorctor's Solution
-          <button>
-            <Link to="https://www.linkedin.com/learning/paths/become-a-digital-marketing-specialist">
-              Ditails{" "}
-            </Link>
-          </button>
-        </div>
+        <div>Dorctor's Solution</div>
         <div>
           <p>Copyright © 2022 - All right reserved by Nature Solution Ltd.</p>
         </div>

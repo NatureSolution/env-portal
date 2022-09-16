@@ -9,6 +9,12 @@ import Login from "./components/Pages/Login/Login";
 import ContactUs from "./components/Pages/ContactUs/ContactUs";
 import Reviews from "./components/Pages/Reviews/Reviews";
 import Appointments from "./components/Pages/Appointment/Appointments";
+import Signup from "./components/Pages/Login/Signup";
+import RequirAuth from "./components/Pages/Login/RequirAuth";
+import UpdatePassword from "./components/Pages/Login/ResetePassword";
+import ResetePassword from "./components/Pages/Login/ResetePassword";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -18,13 +24,25 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/appointments" element={<Appointments />} />
+        <Route
+          path="/appointments"
+          element={
+            <RequirAuth>
+              <Appointments />
+            </RequirAuth>
+          }
+        />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/updatepass" element={<UpdatePassword />} />
+        <Route path="/resetepass" element={<ResetePassword />} />
         <Route path="*" element={<NothingFound />} />
       </Routes>
+
       <Footers />
+      <ToastContainer />
     </div>
   );
 }

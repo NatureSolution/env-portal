@@ -1,19 +1,20 @@
 import React from "react";
-
 import {
-  useAuthState,
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loadding from "../../Sheared/Loadding";
 
-const Login = () => {
+const Signup = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
   const {
     register,
@@ -21,36 +22,61 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  let navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const navigate = useNavigate();
 
-  if (loading || gLoading) {
+  if (loading || gLoading || updating) {
     return <Loadding />;
   }
 
   let errorMessage;
-  if (error || gError) {
+  if (error || gError || updateError) {
     errorMessage = (
-      <p className="text-red-500 text-sm">{error?.message || gError.message}</p>
+      <p className="text-red-500 text-sm">
+        {error?.message || gError.message || updateError.message}
+      </p>
     );
   }
-  // Here Can use useEffect to reduce error
-  if (gUser || user) {
-    navigate(from, { replace: true });
+  if (user || gUser) {
+    console.log(gUser || user);
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data, user) => {
     console.log(data);
-    signInWithEmailAndPassword(data.email, data.password);
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    sendEmailVerification();
+    alert("Verify your Email Then Login");
+    if (!user.emailVerified) {
+      navigate("/login");
+    }
   };
-
   return (
     <div className="flex h-screen justify-center items-center ">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-2xl font-bold text-center">Login</h2>
+          <h2 className="text-2xl font-bold text-center">Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
+            {/* name  */}
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">What is your name?</span>
+              </label>
+              <input
+                {...register("firstName", { required: true })}
+                type="text"
+                placeholder="First Name"
+                className="input input-bordered w-full max-w-xs"
+              />
+              <label className="label">
+                <span className="label-text-alt text-red-500">
+                  {errors.firstName?.type === "required" &&
+                    "First name is required"}
+                </span>
+              </label>
+            </div>
+
+            {/* email */}
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">What is your Email</span>
@@ -85,6 +111,7 @@ const Login = () => {
                 )}
               </label>
             </div>
+
             {/* //Password */}
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -120,24 +147,21 @@ const Login = () => {
                 )}
               </label>
             </div>
-            <p className="text-right mb-2">
-              <Link to="/resetepass">Forget Password</Link>
-            </p>
+            {/* //Name input */}
 
             {errorMessage}
-
             <input
               className="btn btn-primary w-full max-w-xs text-white"
               type="submit"
-              value="Login"
+              value="Sign Up"
             />
           </form>
           <p>
             <small>
               {" "}
-              New to Doctor's Portal?{" "}
-              <Link className="text-primary" to="/signup">
-                Create New Account
+              If you are at Doctor's Portal?{" "}
+              <Link className="text-primary" to="/login">
+                Log In
               </Link>
             </small>
           </p>
@@ -154,4 +178,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

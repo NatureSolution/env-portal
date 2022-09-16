@@ -30,7 +30,7 @@ const MakeAppointment = () => {
           similique debitis doloremque, illo non modi?
         </p>
         <Link to="/appointments">
-          <button class="btn bg-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+          <button className="btn bg-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">
             Make Appointment
           </button>
         </Link>

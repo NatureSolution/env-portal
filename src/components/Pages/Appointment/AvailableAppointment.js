@@ -15,7 +15,6 @@ const AvailableAppointment = ({ date }) => {
       .then((data) => setServices(data));
   }, []);
 
-  console.log(services);
   return (
     <div>
       <div className="m-3 align-items-center">
