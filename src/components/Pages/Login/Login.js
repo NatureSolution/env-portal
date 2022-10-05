@@ -8,6 +8,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import useToken from "../../../hooks/useToken";
 import Loadding from "../../Sheared/Loadding";
 
 const Login = () => {
@@ -20,6 +21,7 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const [token] = useToken(user || gUser);
 
   let navigate = useNavigate();
   let location = useLocation();
@@ -36,7 +38,7 @@ const Login = () => {
     );
   }
   // Here Can use useEffect to reduce error
-  if (gUser || user) {
+  if (token) {
     navigate(from, { replace: true });
   }
 

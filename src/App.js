@@ -18,6 +18,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./components/Pages/Dashboard/Dashboard";
 import MyAppointments from "./components/Pages/Dashboard/MyAppointments";
 import MyReviews from "./components/Pages/Dashboard/MyReviews";
+import History from "./components/Pages/Dashboard/History";
+import AllUsers from "./components/Pages/Dashboard/AllUsers";
+import RequireAdmin from "./components/Pages/Login/RequireAdmin";
 
 function App() {
   return (
@@ -45,6 +48,15 @@ function App() {
         >
           <Route index element={<MyAppointments />}></Route>
           <Route path="myreview" element={<MyReviews />}></Route>
+          <Route path="history" element={<History />}></Route>
+          <Route
+            path="allusers"
+            element={
+              <RequireAdmin>
+                <AllUsers />
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<ContactUs />} />

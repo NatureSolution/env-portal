@@ -8,13 +8,13 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import useToken from "../../../hooks/useToken";
 import Loadding from "../../Sheared/Loadding";
 
 const Signup = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
   const {
     register,
@@ -24,6 +24,7 @@ const Signup = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const [token] = useToken(user || gUser);
 
   if (loading || gLoading || updating) {
     return <Loadding />;
@@ -33,23 +34,17 @@ const Signup = () => {
   if (error || gError || updateError) {
     errorMessage = (
       <p className="text-red-500 text-sm">
-        {error?.message || gError.message || updateError.message}
+        {error?.message || gError?.message || updateError?.message}
       </p>
     );
   }
-  if (user || gUser) {
-    console.log(gUser || user);
+  if (token) {
+    navigate("/appointments");
   }
 
   const onSubmit = async (data, user) => {
-    console.log(data);
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    sendEmailVerification();
-    alert("Verify your Email Then Login");
-    if (!user.emailVerified) {
-      navigate("/login");
-    }
   };
   return (
     <div className="flex h-screen justify-center items-center ">

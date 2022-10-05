@@ -1,5 +1,5 @@
 import React from "react";
-import doctor from "../../../assets/images/doctor.png";
+
 import appointment from "../../../assets/images/appointment.png";
 import PrimaryButton from "../../Sheared/Button/PrimaryButton";
 

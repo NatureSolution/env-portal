@@ -9,6 +9,7 @@ const Headers = () => {
 
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
   };
 
   const menuItems = (
@@ -28,8 +29,8 @@ const Headers = () => {
       <li>
         <Link to="/contact">Contact Us</Link>
       </li>
-      <li tabindex="0">
-        <a>
+      <li tabIndex="0">
+        <div>
           {user ? (
             // <button onClick={logout}  className="btn btn-ghost">
             //   Sign Out
@@ -42,9 +43,9 @@ const Headers = () => {
           ) : (
             <Link to="/login">Login</Link>
           )}
-        </a>
+        </div>
         {user && (
-          <ul class="p-2 bg-base-100">
+          <ul className="p-2 bg-base-100">
             <li>
               <Link to="/dashboard">Dashboard</Link>
             </li>
@@ -57,7 +58,7 @@ const Headers = () => {
     </>
   );
   return (
-    <div className=" navbar bg-base-100">
+    <div className="container mx-auto navbar bg-base-100">
       <div className="container navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">

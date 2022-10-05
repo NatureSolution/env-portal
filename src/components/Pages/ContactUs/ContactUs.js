@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import contact from "./../../../assets/images/contact.svg";
 
 const ContactUS = () => {
+  const { register, handleSubmit } = useForm();
+  const [data, setData] = useState("");
+  console.log(data);
+
   return (
     <div>
       <div className="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
@@ -19,38 +24,52 @@ const ContactUS = () => {
             <img src={contact} alt="" />
           </div>
         </div>
-        <div className="">
-          <div>
-            <span className="uppercase text-sm text-gray-600 font-bold">
-              Full Name
-            </span>
+        <form onSubmit={handleSubmit((data) => setData(data))}>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">What is your name?</span>
+            </label>
             <input
-              className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              {...register("firstName")}
               type="text"
-              placeholder=""
+              placeholder="First Name"
+              className="input input-bordered w-full max-w-xs"
             />
+            <label className="label">
+              <span className="label-text-alt">Alt label</span>
+            </label>
           </div>
-          <div className="mt-8">
-            <span className="uppercase text-sm text-gray-600 font-bold">
-              Email
-            </span>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Your Email</span>
+            </label>
             <input
-              className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              type="text"
+              {...register("email")}
+              type="email"
+              placeholder="email"
+              className="input input-bordered w-full max-w-xs"
             />
+            <label className="label">
+              <span className="label-text-alt">Alt label</span>
+            </label>
           </div>
-          <div className="mt-8">
-            <span className="uppercase text-sm text-gray-600 font-bold">
-              Message
-            </span>
-            <textarea className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Write Your Message</span>
+            </label>
+            <textarea
+              {...register("message")}
+              type="text"
+              placeholder="Your Message"
+              className="input input-bordered w-full max-w-xs"
+            />
+            <label className="label">
+              <span className="label-text-alt">Alt label</span>
+            </label>
           </div>
-          <div className="mt-8">
-            <button className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
-              Send Message
-            </button>
-          </div>
-        </div>
+
+          <input className="btn btn-primary" type="submit" />
+        </form>
       </div>
     </div>
   );

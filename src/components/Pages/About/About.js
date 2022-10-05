@@ -9,6 +9,7 @@ const About = () => {
         <AboutSum></AboutSum>
         <AboutDetails></AboutDetails>
       </div>
+      <button>Primary</button>
     </div>
   );
 };

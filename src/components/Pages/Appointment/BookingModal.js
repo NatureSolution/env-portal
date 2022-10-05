@@ -42,9 +42,9 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
         setTreatment(null);
       });
   };
-  if (!user?.emailVerified) {
-    alert("Varify Your Email");
-  }
+  // if (!user?.emailVerified) {
+  //   alert("Varify Your Email");
+  // }
   return (
     <div>
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
@@ -106,7 +106,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
             <input
               type="submit"
               value="Submit"
-              disabled={!user?.emailVerified}
+              // disabled={!user?.emailVerified}
               placeholder="Type here"
               className="btn btn-primary w-full max-w-xs text-white"
             />
