@@ -2,8 +2,8 @@ import React from "react";
 
 const AboutSum = () => {
   return (
-    <div>
-      <div className=" flex flex-col  lg:flex-row container mx-auto stats shadow ">
+    <div className="my-10">
+      <div className=" flex flex-col  lg:flex-row container mx-auto stats shadow-xl ">
         <div className=" flex flex-col  stat">
           <div className="stat-figure text-primary">
             <svg

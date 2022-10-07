@@ -20,7 +20,9 @@ import MyAppointments from "./components/Pages/Dashboard/MyAppointments";
 import MyReviews from "./components/Pages/Dashboard/MyReviews";
 import History from "./components/Pages/Dashboard/History";
 import AllUsers from "./components/Pages/Dashboard/AllUsers";
+import AddDoctor from "./components/Pages/Dashboard/AddDoctor";
 import RequireAdmin from "./components/Pages/Login/RequireAdmin";
+import ManageDoctors from "./components/Pages/Dashboard/ManageDoctors";
 
 function App() {
   return (
@@ -54,6 +56,22 @@ function App() {
             element={
               <RequireAdmin>
                 <AllUsers />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="adddoctor"
+            element={
+              <RequireAdmin>
+                <AddDoctor></AddDoctor>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="managedoctors"
+            element={
+              <RequireAdmin>
+                <ManageDoctors />
               </RequireAdmin>
             }
           ></Route>

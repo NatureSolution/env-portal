@@ -34,8 +34,6 @@ const MyAppointments = () => {
     }
   }, [user]);
 
-  console.log(appointments);
-
   return (
     <div>
       <h2>My Appointments: {appointments.length}</h2>

@@ -11,7 +11,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
   const handelBooking = (event) => {
     event.preventDefault();
     const slot = event.target.slot.value;
-    console.log(_id, name, slot);
+
     const booking = {
       treatmentId: _id,
       treatment: name,
@@ -30,7 +30,6 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.success) {
           toast(`Appointment is Set ${formatedDate} at ${slot}`);
         } else {
