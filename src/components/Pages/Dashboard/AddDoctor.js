@@ -12,7 +12,9 @@ const AddDoctor = () => {
     reset,
   } = useForm();
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
+    fetch("https://peaceful-inlet-00145.herokuapp.com/service").then((res) =>
+      res.json()
+    )
   );
   const imageStorage_key = "45cf8e05d9a8fb4699c9753ee77549f1";
 
@@ -45,7 +47,7 @@ const AddDoctor = () => {
             img: img,
           };
           //send yout database
-          fetch("http://localhost:5000/doctor", {
+          fetch("https://peaceful-inlet-00145.herokuapp.com/doctor", {
             method: "POST",
             headers: {
               "content-type": "application/json",

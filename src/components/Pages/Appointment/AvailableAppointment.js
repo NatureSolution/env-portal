@@ -18,16 +18,16 @@ const AvailableAppointment = ({ date }) => {
     isLoading,
     refetch,
   } = useQuery(["available", formatedDate], () =>
-    fetch(`http://localhost:5000/available?date=${formatedDate}`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://peaceful-inlet-00145.herokuapp.com/available?date=${formatedDate}`
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Loadding></Loadding>;
   }
 
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/available?date=${formatedDate}`)
+  //   fetch(`https://peaceful-inlet-00145.herokuapp.com/available?date=${formatedDate}`)
   //     .then((res) => res.json())
   //     .then((data) => setServices(data));
   // }, [formatedDate]);
