@@ -38,6 +38,12 @@ const Payment = () => {
             <span className="font-bold">{appointment.slot}</span>
           </p>
           <p>Please pay : $ {appointment.price}</p>
+          <a
+            className="text-xl font-bold"
+            href="https://stripe.com/docs/testing"
+          >
+            Use this Testing Card info{" "}
+          </a>
         </div>
       </div>
       <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
